@@ -19,9 +19,11 @@ jQuery(function($){
 	var urlStr = "<%=request.getContextPath()%>/courses/<%=request.getParameter("courseId")%>";
 	//alert("Before Call:"+urlStr);
 	$.ajax({
+		//XHR 发送请求，OPEN(method,url,async)方法，async请求是同步还是异步，默认异步（true）
 		method: "GET",
 		url: urlStr,
 		success:function(data,status,jqXHR){
+			//XHR即XMLHttpRequest对象，ajax实现的 基础
 			//alert("Success:"+data);
 			var course = data;
 			var path = "<%=request.getContextPath()%>/";	
