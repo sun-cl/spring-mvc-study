@@ -26,7 +26,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.imooc.mvcdemo.model.Course;
+import com.imooc.mvcdemo.model.Teacher;
 import com.imooc.mvcdemo.service.CourseService;
+import com.imooc.mvcdemo.service.TeacherService;
 
 
 @Controller
@@ -37,13 +39,16 @@ public class CourseController {
 	private static Logger log = LoggerFactory.getLogger(CourseController.class);
 
 	private CourseService courseService;
+	private TeacherService teacherService;
 
 	@Autowired
 	public void setCourseService(CourseService courseService) {
 		this.courseService = courseService;
 	}
-
-	
+    @Autowired
+    public void setTeacherService(TeacherService teacherService) {
+		this.teacherService = teacherService;
+	}
 	//本方法将处理 /courses/view?courseId=123 形式的URL
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String viewCourse(@RequestParam("courseId") Integer courseId,
@@ -135,6 +140,11 @@ public class CourseController {
 	@RequestMapping(value="/{courseId}",method=RequestMethod.GET)
 	public @ResponseBody Course getCourseInJson(@PathVariable Integer courseId){
 		return  courseService.getCoursebyId(courseId);
+	}
+	
+	@RequestMapping(value="/teacher/{teacherId}",method=RequestMethod.GET)
+	public @ResponseBody Teacher getTeacherInJson(@PathVariable Integer teacherId){
+		return  teacherService.getTeacherbyId(teacherId);
 	}
 	
 	

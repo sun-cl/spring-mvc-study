@@ -1833,7 +1833,7 @@ body{
 
 	}
 /*边栏教师信息end*/
-.chapter_introduces,.chapter_catalog{
+.chapter_introduces,.chapter_catalog,.teacher_introduces{
 	color:#303538;
 	font-size:18px;
 	line-height:40px;
@@ -1842,7 +1842,7 @@ body{
 .chapter_catalog{
 	margin-top: 20px;
 }
-.course_shortdecription{
+.course_shortdecription,.teacher_shortdecription{
 	color:#60686b;
 	font-size:14px;
 	line-height: 30px;

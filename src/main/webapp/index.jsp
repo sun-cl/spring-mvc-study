@@ -24,7 +24,7 @@ jQuery(function($){
 		url: urlStr,
 		success:function(data,status,jqXHR){
 			//XHR即XMLHttpRequest对象，ajax实现的 基础
-			//alert("Success:"+data);
+			//alert("Success1:"+data);
 			var course = data;
 			var path = "<%=request.getContextPath()%>/";	
 			$(".course-title").html(course.title);
@@ -47,6 +47,24 @@ jQuery(function($){
 			}// ~ end for			
 		}
 	}); // end ajax
+	
+	var urlStr2 = "<%=request.getContextPath()%>/courses/teacher/123";
+	
+	$.ajax({
+		method: "GET",
+		url: urlStr2,
+		success:function(data,status,jqXHR){
+			//alert("success:"+data);
+			var teacher = data;
+			$(".teacher_shortdecription").html(teacher.experience);
+			
+			
+		}
+		
+		
+	});// end ajax
+	
+	
 });
 </script>
 <body>
@@ -85,6 +103,9 @@ jQuery(function($){
 					<ul id="couList">
 						
 					</ul>
+					
+					<h3 class="teacher_introduces">教师信息</h3>
+					<div class="teacher_shortdecription"></div>
 				</div>
 
 			</div>
